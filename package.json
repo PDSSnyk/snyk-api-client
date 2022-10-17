@@ -8,7 +8,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "prepare": "yarn run build",
+    "prepare": "yarn run snyk-protect && yarn run build",
     "build": "tsc",
     "develop": "tsc --watch",
     "lint": "eslint src/**/*.ts",
@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage:view": "open-cli coverage/lcov-report/index.html",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "snyk-protect": "snyk-protect"
   },
   "author": {
     "name": "Liran Tal",
@@ -37,7 +38,8 @@
     "url": "https://github.com/lirantal/snyk-api.git"
   },
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^9.6.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
@@ -220,5 +222,6 @@
       }
     ],
     "@semantic-release/github"
-  ]
+  ],
+  "snyk": true
 }
