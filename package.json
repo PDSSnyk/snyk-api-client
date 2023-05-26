@@ -8,7 +8,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "prepare": "yarn run build",
+    "prepare": "yarn run snyk-protect && yarn run build",
     "build": "tsc",
     "develop": "tsc --watch",
     "lint": "eslint src/**/*.ts",
@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage:view": "open-cli coverage/lcov-report/index.html",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "snyk-protect": "snyk-protect"
   },
   "author": {
     "name": "Liran Tal",
@@ -37,16 +38,17 @@
     "url": "https://github.com/lirantal/snyk-api.git"
   },
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^11.8.5",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.2.1",
+    "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^7.1.2",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/commit-analyzer": "^6.2.0",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.4.2",
-    "@semantic-release/npm": "^5.1.13",
+    "@semantic-release/npm": "^7.1.0",
     "@semantic-release/release-notes-generator": "^7.2.1",
     "@types/got": "^9.6.5",
     "@types/jest": "^24.0.16",
@@ -66,14 +68,14 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "husky": "^3.0.0",
-    "jest": "^24.8.0",
+    "jest": "^25.0.0",
     "lint-staged": "^9.2.0",
     "nock": "^10.0.6",
-    "open-cli": "^5.0.0",
+    "open-cli": "^6.0.0",
     "prettier": "^1.18.2",
     "prettier-standard": "^9.1.1",
-    "semantic-release": "^15.13.19",
-    "ts-jest": "^24.0.2",
+    "semantic-release": "^19.0.0",
+    "ts-jest": "^25.3.0",
     "typescript": "^3.5.3"
   },
   "jest": {
@@ -220,5 +222,6 @@
       }
     ],
     "@semantic-release/github"
-  ]
+  ],
+  "snyk": true
 }
